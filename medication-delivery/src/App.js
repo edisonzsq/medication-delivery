@@ -30,13 +30,14 @@ export default function App() {
   return (
     <div className='App'>
       <div className='header'>
-        <h1>Medication Delivery App</h1>
+        <span className="login">Log In</span>
+        <h1>Medication Order List</h1>
       </div>
       <div className='main'>
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <Medication key={medication.id} medication={medication} removeMedication={removeMedication}/>
+            <Medication key={medication.id} medication={medication} />
           ))}
         </ul>
       </div>
@@ -45,3 +46,4 @@ export default function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
+//removeMedication={removeMedication}

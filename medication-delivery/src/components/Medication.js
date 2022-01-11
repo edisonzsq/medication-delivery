@@ -19,13 +19,15 @@ export function Medication(props) {
 
     return (
         <li className="Medication">
+            <div className="text">{medication.text}
             <button
             aria-label="Remove medication"
             className="remove-medication"
             onClick={handleRemoveClick}
             >
+              X
             </button>
-            <div className="text">{medication.value}</div>
+            </div>
         </li>
     )
 }
