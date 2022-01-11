@@ -1,3 +1,70 @@
+body {
+  background-color: lightgrey;
+  font-family: Helvetica, sans-serif
+}
+
+input,
+button {
+  box-sizing: border-box;
+}
+
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
 .App {
+  margin: 0 auto;
+  width: 90vw;
+  height: 100vh;
+  overflow-y: hidden;
   text-align: center;
+  background-color: white;
+  opacity: 85%;
+}
+
+.main {
+  padding: 20px 0 350px 0;
+  max-width: 50vw;
+  position: relative;
+  top: 0;
+  left: 25%;
+}
+
+.AddMedicationForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.AddMedicationForm input[type='text'] {
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
+  border: solid 1px grey;
+}
+
+.AddMedicationForm input[type='submit'] {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  border: solid 1px grey;
+  background-color: aquamarine;
+}
+
+.Medication {
+  list-style-type: none;
+}
+
+.Medication .remove-button {
+  font-size: 100%;
+  float: right;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+}
+
+.Medication .remove-button:hover {
+  color: #fff;
+  background-color: #000;
 }
