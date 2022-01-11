@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {generateId, getNewExpirationTime} from '../utilities';
+import {generateId, getNewExpirationTime} from './utilities';
 
 export function AddMedicationForm(props) {
     const [medication, setMedication] = useState('')

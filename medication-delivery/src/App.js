@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import {AddMedicationForm} from './components/AddMedicationForm';
 import {Medication} from './components/Medication';
-import {generateId, getNewExpirationTime} from './utilities';
+import {generateId, getNewExpirationTime} from './components/utilities';
 import './App.css';
 
 export default function App() {
   const [medication, setMedication] = useState([
     {
       id: generateId(),
-      text: 'Add ne wmedication',
+      text: 'Add new medication',
       expiresAt: getNewExpirationTime(),
     },
     {
@@ -28,13 +28,13 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <div className="header">
+    <div className='App'>
+      <div className='header'>
         <h1>Medication Delivery App</h1>
       </div>
-      <div className="main">
+      <div className='main'>
         <AddMedicationForm addMedication={addMedication}/>
-        <ul className="medication">
+        <ul className='medication'>
           {medication.map((medication) => (
             <Medication key={medication.id} medication={medication} removeMedication={removeMedication}/>
           ))}
