@@ -32,7 +32,7 @@ export default function App() {
     <div className='App'>
       <div className='header'>
         <span className="logo">
-          <img src={logo} alt="logo" height={40} width={140} style={{float: "right"}}></img>
+          <img src={logo} alt="logo" height={40} width={140}></img>
         </span>
         <span className="login">Log In</span><br />
         <h1>Medication Order List</h1>
@@ -41,7 +41,7 @@ export default function App() {
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <Medication key={medication.id} medication={medication} removeMedication={removeMedication}/>
+            <Medication key={medication.id} medication={medication}/>
           ))}
         </ul>
       </div>
@@ -50,3 +50,4 @@ export default function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
+// removeMedication={removeMedication}
