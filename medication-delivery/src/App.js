@@ -41,7 +41,7 @@ export default function App() {
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <Medication key={medication.id} medication={medication} />
+            <Medication key={medication.id} medication={medication} removeMedication={removeMedication}/>
           ))}
         </ul>
       </div>
@@ -50,4 +50,3 @@ export default function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
-//removeMedication={removeMedication}

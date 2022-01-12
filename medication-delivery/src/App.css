@@ -115,43 +115,18 @@ ul {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: white;
-  }
-
   .text {
     max-width: 100vw;
     margin-left: -120%;
     max-height: 100vh;
-  }
-
-  .logo {
-    margin-top: 0;
-  }
-  
-  .login {
-    margin-right: 300px;
   }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 900px) {
-  body {
-    background-color: white;
-  }
-
   .text {
     max-width: 100vw;
     margin-left: -120%;
     max-height: 100vh;
-  }
-
-  .logo {
-    margin-top: 0;
-    margin-left: -5px;
-  }
-
-  .login {
-    margin-right: 300px;
   }
 
 }
