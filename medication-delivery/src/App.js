@@ -21,7 +21,7 @@ export default function App() {
   ]);
 
   const addMedication = medication => {
-    setMedication(medication => [medication, ...medication]);
+    setMedication(medication => [...medication, medication]);
   }
 
   const removeMedication = medicationIdToRemove => {

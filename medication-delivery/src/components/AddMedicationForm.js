@@ -20,7 +20,7 @@ export function AddMedicationForm(props) {
             text: medication,
             expiresAt: getNewExpirationTime()
         })
-        setMedication('');
+        setMedication(medication);
     }
 
     return (
@@ -29,7 +29,7 @@ export function AddMedicationForm(props) {
             type='text'
             aria-label='Select your medication'
             placeholder='Select your medication'
-            value={medication}
+            value={medication.text}
             onChange={handleMedicationChange}
             />
             <input type='submit' value='Order'/>
