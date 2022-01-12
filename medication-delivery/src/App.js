@@ -34,7 +34,7 @@ export default function App() {
         <span className="logo">
           <img src={logo} alt="logo" height={40} width={140} style={{float: "right"}}></img>
         </span>
-        <span className="login">Log In</span>
+        <span className="login">Log In</span><br />
         <h1>Medication Order List</h1>
       </div>
       <div className='main'>
