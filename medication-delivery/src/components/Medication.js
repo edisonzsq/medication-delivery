@@ -20,6 +20,10 @@ export function Medication(props) {
     return (
         <li className="Medication">
             <div className="text">{medication.text}
+            <span className="view-remove">
+            <button className="view-order">
+                View Order
+            </button>
             <button
             aria-label="Remove medication"
             className="remove-medication"
@@ -27,6 +31,7 @@ export function Medication(props) {
             >
               X
             </button>
+            </span>
             </div>
         </li>
     )

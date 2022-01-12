@@ -38,6 +38,11 @@ button {
   left: 23%;
 }
 
+.logo {
+  float: left;
+  padding: 5px;
+}
+
 h1 {
   font-size: 34px;
 }
@@ -80,13 +85,23 @@ ul {
  font-size: 16px;
  background-color: #f0f0f0;
  border-radius: 3px;
- margin: 0 100px;
- padding: 5px;
+ margin: 0 60px;
+ padding: 10px;
 }
 
-.Medication button {
-  padding: 5px;
+.Medication .view-remove {
   float: right;
+}
+
+.Medication .view-order {
+  background-color: aquamarine;
+  border: solid 1px grey;
+  border-radius: 3px;
+}
+
+.Medication .remove-medication {
+  padding: 5px;
+  background-color: none;
   margin-left: 10px;
   border: none;
   font-size: 12px;

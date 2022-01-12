@@ -30,6 +30,9 @@ export default function App() {
   return (
     <div className='App'>
       <div className='header'>
+        <span className="logo">
+          <img src="" alt="logo"></img>
+        </span>
         <span className="login">Log In</span>
         <h1>Medication Order List</h1>
       </div>

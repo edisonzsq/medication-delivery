@@ -27,12 +27,12 @@ export function AddMedicationForm(props) {
         <form className='AddMedicationForm' onSubmit={handleSubmit}>
             <input
             type='text'
-            aria-label='What do want to order?'
-            placeholder='What do want to order?'
+            aria-label='Select your medication'
+            placeholder='Select your medication'
             value={medication}
             onChange={handleMedicationChange}
             />
-            <input type='submit'/>
+            <input type='submit' value='Order'/>
         </form>
     );
 }
