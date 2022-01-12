@@ -40,7 +40,12 @@ button {
 
 .logo {
   float: left;
-  padding: 5px;
+  margin-top: -15px;
+}
+
+.login {
+  position: absolute;
+  right: 100px;
 }
 
 h1 {

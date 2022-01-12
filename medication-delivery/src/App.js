@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {AddMedicationForm} from './components/AddMedicationForm';
 import {Medication} from './components/Medication';
 import {generateId, getNewExpirationTime} from './components/utilities';
+import logo from './logo.jpg';
 import './App.css';
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
     <div className='App'>
       <div className='header'>
         <span className="logo">
-          <img src="" alt="logo"></img>
+          <img src={logo} alt="logo" height={40} width={140} style={{float: "right"}}></img>
         </span>
         <span className="login">Log In</span>
         <h1>Medication Order List</h1>
