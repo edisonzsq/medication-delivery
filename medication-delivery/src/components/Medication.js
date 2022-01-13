@@ -10,11 +10,11 @@ export function Medication(props) {
     useEffect(() => {
         const timeRemaining = medication.expiresAt - Date.now();
 
-        const timeoutId = setTimeout(() => {
+        const timeout = setTimeout(() => {
             removeMedication(medication.id)
         }, timeRemaining)
 
-        return () => clearTimeout(timeoutId)
+        return () => {clearTimeout(timeout)}
     }, [medication, removeMedication])
 
     return (

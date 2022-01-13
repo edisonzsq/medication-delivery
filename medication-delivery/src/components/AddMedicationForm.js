@@ -2,25 +2,25 @@ import React, {useState} from 'react';
 import {generateId, getNewExpirationTime} from './utilities';
 
 export function AddMedicationForm(props) {
-    const [medication, setMedication] = useState('')
+    const [text, setText] = useState('');
 
-    const handleMedicationChange = ({target}) => {
-        setMedication(target.value)
+    const handleTextChange = ({event}) => {
+        setText(event.target.value);
     }
 
-    const handleSubmit = event => {
-        if (!medication) {
-            event.preventDefault();
-            return;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const medication = {
+            id: generateId(),
+            text: text,
+            expiresAt: getNewExpirationTime()
         }
 
-        event.preventDefault();
-        props.addMedication({
-            id: generateId(),
-            text: medication,
-            expiresAt: getNewExpirationTime()
-        })
-        setMedication(medication);
+        if (text.length > 0) {
+        props.addMedication(medication);
+        setText('');
+        }
     }
 
     return (
@@ -29,10 +29,11 @@ export function AddMedicationForm(props) {
             type='text'
             aria-label='Select your medication'
             placeholder='Select your medication'
-            value={medication.text}
-            onChange={handleMedicationChange}
+            value={text}
+            onChange={handleTextChange}
             />
             <input type='submit' value='Order'/>
         </form>
     );
 }
+//if (!text)

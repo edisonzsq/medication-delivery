@@ -20,12 +20,12 @@ export default function App() {
     },
   ]);
 
-  const addMedication = medication => {
+  const addMedication = (medication) => {
     setMedication(medication => [...medication, medication]);
   }
 
-  const removeMedication = medicationIdToRemove => {
-    setMedication(medication.filter(medicationItem => medicationItem.id !== medicationIdToRemove))
+  const removeMedication = (medicationIdToRemove) => {
+    setMedication(prev => prev.filter(medication => (medication.id !== medicationIdToRemove)))
   }
 
   return (
