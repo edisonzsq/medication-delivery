@@ -4,17 +4,19 @@ import {generateId, getNewExpirationTime} from './utilities';
 export function AddMedicationForm(props) {
     const [text, setText] = useState('');
 
-    const handleTextChange = ({event}) => {
-        setText(event.target.value);
+    // When user starts typing in input field
+    const handleTextChange = ({target}) => {
+        setText(target.value);
     }
 
+    // When order button is clicked
     const handleSubmit = (event) => {
         event.preventDefault();
         
         const medication = {
             id: generateId(),
             text: text,
-            expiresAt: getNewExpirationTime()
+            expiresAt: getNewExpirationTime(),
         }
 
         if (text.length > 0) {
@@ -24,7 +26,7 @@ export function AddMedicationForm(props) {
     }
 
     return (
-        <form className='AddMedicationForm' onSubmit={handleSubmit}>
+        <form className='AddMedicationForm'>
             <input
             type='text'
             aria-label='Select your medication'
@@ -32,7 +34,7 @@ export function AddMedicationForm(props) {
             value={text}
             onChange={handleTextChange}
             />
-            <input type='submit' value='Order'/>
+            <input type='submit' value='Order' onClick={handleSubmit}/>
         </form>
     );
 }

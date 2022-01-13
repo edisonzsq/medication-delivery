@@ -7,6 +7,7 @@ import logo from './logo.jpg';
 import './App.css';
 
 export default function App() {
+  //Initialize state
   const [medication, setMedication] = useState([
     {
       id: generateId(),
@@ -20,10 +21,12 @@ export default function App() {
     },
   ]);
 
+  // Add new medication to back of array
   const addMedication = (medication) => {
     setMedication(medication => [...medication, medication]);
   }
 
+  //Remove medication when close button clicked
   const removeMedication = (medicationIdToRemove) => {
     setMedication(prev => prev.filter(medication => (medication.id !== medicationIdToRemove)))
   }
@@ -41,7 +44,7 @@ export default function App() {
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <Medication key={medication.id} medication={medication}/>
+            <Medication key={medication.id} medication={medication} removeMedication={removeMedication}/>
           ))}
         </ul>
       </div>
@@ -50,4 +53,3 @@ export default function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
-// removeMedication={removeMedication}
