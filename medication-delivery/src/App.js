@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import {AddMedicationForm} from './components/AddMedicationForm';
-import {Medication} from './components/Medication';
-import {generateId, getNewExpirationTime} from './components/utilities';
+import {ProcessMedication} from './components/ProcessMedication';
+import {RemoveMedication} from './components/RemoveMedication';
+import {generateId, getNewProcessedTime} from './components/utilities';
 import logo from './logo.jpg';
 import './App.css';
 
@@ -12,12 +13,12 @@ export default function App() {
     {
       id: generateId(),
       text: 'Add new medication',
-      expiresAt: getNewExpirationTime(),
+      processedAt: getNewProcessedTime(),
     },
     {
       id: generateId(),
       text: 'They will be removed after 10 seconds',
-      expiresAt: getNewExpirationTime(),
+      processedAt: getNewProcessedTime(),
     },
   ]);
 
@@ -25,6 +26,8 @@ export default function App() {
   const addMedication = (medication) => {
     setMedication(medication => [...medication, medication]);
   }
+
+  //Process medication?
 
   //Remove medication when close button clicked
   const removeMedication = (medicationIdToRemove) => {
@@ -44,7 +47,7 @@ export default function App() {
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <Medication key={medication.id} medication={medication} removeMedication={removeMedication}/>
+            <ProcessMedication key={medication.id} medication={medication} ProcessMedication={ProcessMedication} removeMedication={removeMedication}/>
           ))}
         </ul>
       </div>

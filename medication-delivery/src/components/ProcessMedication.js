@@ -1,26 +1,21 @@
 import React, {useEffect} from 'react';
 
-export function Medication(props) {
-    const {medication, removeMedication} = props;
-
-    // Remove medication when button clicked
-    const handleRemoveClick = () => {
-        removeMedication(medication.id);
-        alert('Cancel order?')
-    };
+export function ProcessMedication(props) {
+    const {medication, processMedication} = props;
 
     useEffect(() => {
-        const timeRemaining = medication.expiresAt - Date.now();
+        const timeRemaining = medication.processedAt - Date.now();
 
-        // Expiration time - Current time = Time Remaining
-        // Remove medication when time runs out
+        // Processed time - Current time = Time Remaining
+        // Process medication when time runs out
         const timeout = setTimeout(() => {
-            removeMedication(medication.id)
+            processMedication(medication.id)
+            alert('Order has been placed');
         }, timeRemaining)
 
         // Effect cleared after medication removed
         return () => {clearTimeout(timeout)}
-    }, [medication, removeMedication])
+    }, [medication, processMedication])
 
     return (
         <li className="Medication">
@@ -32,7 +27,7 @@ export function Medication(props) {
             <button
             aria-label="Remove medication"
             className="remove-medication"
-            onClick={handleRemoveClick}
+            onClick={ProcessMedication}
             >
               X
             </button>

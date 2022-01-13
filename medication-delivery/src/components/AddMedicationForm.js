@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {generateId, getNewExpirationTime} from './utilities';
+import {generateId, getNewProcessedTime} from './utilities';
 
 export function AddMedicationForm(props) {
     const [text, setText] = useState('');
@@ -16,12 +16,12 @@ export function AddMedicationForm(props) {
         const medication = {
             id: generateId(),
             text: text,
-            expiresAt: getNewExpirationTime(),
+            processedAt: getNewProcessedTime(),
         }
 
         if (text.length > 0) {
         props.addMedication(medication);
-        setText('');
+        setText({medication});
         }
     }
 
