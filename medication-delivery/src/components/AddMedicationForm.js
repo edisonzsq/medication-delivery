@@ -1,41 +1,43 @@
 import React, {useState} from 'react';
-import {generateId, getNewProcessedTime} from './utilities';
+import {getNewProcessedTime} from './utilities';
 
-export function AddMedicationForm(props) {
-    const [text, setText] = useState('');
+export default function AddMedicationForm(props) {
+    const {addMedication} = props;
+    const blankForm = {
+        id: null,
+        name: "",
+        processedAt: ""
+    }
+    const [medication, setMedication] = useState(blankForm);
 
     // When user starts typing in input field
-    const handleTextChange = ({target}) => {
-        setText(target.value);
+    const handleTextChange = ({event}) => {
+        const {key, value} = event.target;
+        setText({...medication, [key]: value});
     }
 
     // When order button is clicked
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        const medication = {
-            id: generateId(),
-            text: text,
-            processedAt: getNewProcessedTime(),
-        }
 
-        if (text.length > 0) {
-        props.addMedication(medication);
-        setText({medication});
+        if (!medication.name) {
+        return 0;
+        addMedication(medication);
+        setMedication(blankForm);
         }
     }
 
     return (
-        <form className='AddMedicationForm'>
+        <form className='AddMedicationForm' onSubmit={handleSubmit}>
             <input
             type='text'
+            key='name'
             aria-label='Select your medication'
             placeholder='Select your medication'
-            value={text}
+            value={medication.name}
             onChange={handleTextChange}
             />
-            <input type='submit' value='Order' onClick={handleSubmit}/>
+            <input type='submit' value='Order'/>
         </form>
     );
 }
-//if (!text)

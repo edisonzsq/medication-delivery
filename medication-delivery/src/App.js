@@ -9,29 +9,30 @@ import './App.css';
 
 export default function App() {
   //Initialize state
-  const [medication, setMedication] = useState([
+  const [medicationList, setMedicationList] = useState([
     {
       id: generateId(),
-      text: 'Add new medication',
+      name: 'Add new medication',
       processedAt: getNewProcessedTime(),
     },
     {
       id: generateId(),
-      text: 'They will be removed after 10 seconds',
+      name: 'They will be removed after 10 seconds',
       processedAt: getNewProcessedTime(),
     },
   ]);
 
   // Add new medication to back of array
   const addMedication = (medication) => {
-    setMedication(medication => [...medication, medication]);
+    item.id = itemList.length+1
+    setMedication(medication => [...medicationList, medication]);
   }
 
   //Process medication?
 
   //Remove medication when close button clicked
   const removeMedication = (medicationIdToRemove) => {
-    setMedication(prev => prev.filter(medication => (medication.id !== medicationIdToRemove)))
+    setMedicationList(medicationList.filter(medication => (medication.id !== medicationIdToRemove)));
   }
 
   return (
@@ -47,7 +48,7 @@ export default function App() {
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <ProcessMedication key={medication.id} medication={medication} ProcessMedication={ProcessMedication} removeMedication={removeMedication}/>
+            <OrderList key={medication.id} medicationList={medicationList} ProcessMedication={ProcessMedication} removeMedication={removeMedication}/>
           ))}
         </ul>
       </div>
