@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import {getNewProcessedTime} from './utilities';
 
 export default function AddMedicationForm(props) {
     const {addMedication} = props;
     const blankForm = {
         id: null,
-        name: "",
-        processedAt: ""
+        name: ""
     }
     const [medication, setMedication] = useState(blankForm);
 

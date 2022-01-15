@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import {AddMedicationForm} from './components/AddMedicationForm';
-import {ProcessMedication} from './components/ProcessMedication';
 import {RemoveMedication} from './components/RemoveMedication';
 import {generateId, getNewProcessedTime} from './components/utilities';
 import logo from './logo.jpg';
@@ -12,26 +11,24 @@ export default function App() {
   const [medicationList, setMedicationList] = useState([
     {
       id: generateId(),
-      name: 'Add new medication',
-      processedAt: getNewProcessedTime(),
+      name: 'Add new medication'
     },
     {
       id: generateId(),
-      name: 'They will be removed after 10 seconds',
-      processedAt: getNewProcessedTime(),
+      name: 'They will be removed after 10 seconds'
     },
   ]);
 
   // Add new medication to back of array
   const addMedication = (medication) => {
-    item.id = itemList.length+1
+    medication.id = medicationList.length+1
     setMedication(medication => [...medicationList, medication]);
   }
 
   //Process medication?
 
   //Remove medication when close button clicked
-  const removeMedication = (medicationIdToRemove) => {
+  const RemoveMedication = (medicationIdToRemove) => {
     setMedicationList(medicationList.filter(medication => (medication.id !== medicationIdToRemove)));
   }
 
@@ -48,7 +45,7 @@ export default function App() {
         <AddMedicationForm addMedication={addMedication}/>
         <ul className='medication'>
           {medication.map((medication) => (
-            <OrderList key={medication.id} medicationList={medicationList} ProcessMedication={ProcessMedication} removeMedication={removeMedication}/>
+            <OrderList key={medication.id} medicationList={medicationList} RemoveMedication={RemoveMedication}/>
           ))}
         </ul>
       </div>

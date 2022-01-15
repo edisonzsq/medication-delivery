@@ -1,14 +1,12 @@
 import React, {useEffect} from 'react';
 
-export function RemoveMedication(props) {
+export default function RemoveMedication(props) {
     const {medication, removeMedication} = props;
 
     useEffect(() => {
         // Remove medication when button clicked
-        const handleRemoveClick = () => {
         removeMedication(medication.id);
         alert('Cancel order?');
-        }
     }, [medication])
 
     return (
@@ -21,7 +19,7 @@ export function RemoveMedication(props) {
             <button
             aria-label="Remove medication"
             className="remove-medication"
-            onClick={handleRemoveClick}
+            onClick={RemoveMedication}
             >
               X
             </button>
