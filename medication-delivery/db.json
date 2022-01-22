@@ -1,0 +1,40 @@
+{
+    "medication": [
+        {
+            "id": "102938",
+            "name":"Amlodipine 10mg OD"
+        },
+        {
+            "id": "102939",
+            "commercial_name":"Atenolol 50mg OD"
+        },
+        {
+            "id": "102940",
+            "commercial_name":"Losartan 100mg OD"
+        },
+        {
+            "id": "102941",
+            "commercial_name":"Spironolactone 100mg OD"
+        },
+        {
+            "id": "102942",
+            "commercial_name":"Aspirin 81mg OD"
+        },
+        {
+            "id": "102943",
+            "commercial_name":"Metformin 1000mg BID"
+        },
+        {
+            "id": "102944",
+            "commercial_name":"Gabapentin 1200mg TID"
+        },
+        {
+            "id": "102945",
+            "commercial_name":"Tramadol 100mg TID"
+        },
+        {
+            "id": "102946",
+            "commercial_name":"Omeprazole 20mg BID"
+        }
+    ]
+}

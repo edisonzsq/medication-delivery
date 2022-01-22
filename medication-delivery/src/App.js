@@ -1,56 +1,45 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
-import {AddMedicationForm} from './components/AddMedicationForm';
-import {RemoveMedication} from './components/RemoveMedication';
-import {generateId, getNewProcessedTime} from './components/utilities';
+import AddMedication from './components/AddMedication';
+import MedicationList from './components/MedicationList';
 import logo from './logo.jpg';
+import API from './api/api';
 import './App.css';
 
-export default function App() {
-  //Initialize state
-  const [medicationList, setMedicationList] = useState([
-    {
-      id: generateId(),
-      name: 'Add new medication'
-    },
-    {
-      id: generateId(),
-      name: 'They will be removed after 10 seconds'
-    },
-  ]);
+function App() {
+  const [medicationList, setmedicationList] = useState([])
+  const blankForm = [
+    {id: null, name: ''}
+  ]
 
-  // Add new medication to back of array
-  const addMedication = (medication) => {
-    medication.id = medicationList.length+1
-    setMedication(medication => [...medicationList, medication]);
-  }
-
-  //Process medication?
-
-  //Remove medication when close button clicked
-  const RemoveMedication = (medicationIdToRemove) => {
-    setMedicationList(medicationList.filter(medication => (medication.id !== medicationIdToRemove)));
+  const addMedication = () => {
+    API.get("/medication").then((res) => {
+      console.log("Status", res.status);
+      console.log("Data", res.data)
+      setmedicationList([...medicationList, res.data])
+      console.log(res.data);
+    })
   }
 
   return (
-    <div className='App'>
-      <div className='header'>
+    <div className="App">
+      <div className="Header">
         <span className="logo">
-          <img src={logo} alt="logo" height={40} width={140}></img>
+          <img src={logo} alt="logo" height={40} width={140} />
         </span>
         <span className="login">Log In</span><br />
-        <h1>Medication Order List</h1>
       </div>
-      <div className='main'>
-        <AddMedicationForm addMedication={addMedication}/>
-        <ul className='medication'>
-          {medication.map((medication) => (
-            <OrderList key={medication.id} medicationList={medicationList} RemoveMedication={RemoveMedication}/>
-          ))}
-        </ul>
+      <h1>Medication Delivery App</h1>
+      <div className="Form">
+          <AddMedication addMedication={addMedication} />
       </div>
+      <div className="List">
+      <div>
+        <h2>Order List</h2>
+          <MedicationList medicationList={medicationList} />
+      </div>
+      </div>     
     </div>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
