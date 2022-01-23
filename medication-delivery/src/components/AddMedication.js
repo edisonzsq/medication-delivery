@@ -17,10 +17,13 @@ export default function AddMedication(props) {
     const handleSubmit = async(event) => {
         event.preventDefault();
 
-        const res = await API.post("/medication")
+        const res = await API.post("/medication", medication)
+        if (res.status === 200) {
             console.log("Res data", res.data)
-            props.addMedication(res.data.medication);
+            const newMed = [...medication, newMed]
+            //props.addMedication(res.data.medication);
             setMedication(blankForm);
+        }
     }
 
     return (
