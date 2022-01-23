@@ -16,7 +16,6 @@ function App() {
       console.log("Status", res.status);
       console.log("Data", res.data)
       setmedicationList([...medicationList, res.data])
-      console.log(res.data);
     })
   }
 
@@ -35,7 +34,9 @@ function App() {
       <div className="List">
       <div>
         <h2>Order List</h2>
+        <ul>
           <MedicationList medicationList={medicationList} />
+        </ul>
       </div>
       </div>     
     </div>

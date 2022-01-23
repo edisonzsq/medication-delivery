@@ -9,16 +9,16 @@ export default function AddMedication(props) {
     const [medication, setMedication] = useState(blankForm);
 
     const handleInput = event => {
-        
-        const {name, value} = event.target
-        setMedication({...medication, [name]: value})
+        const newMed = {...medication};
+        newMed.name = event.target.value;
+        console.log("newMed", newMed);
     }
 
     const handleSubmit = async(event) => {
         event.preventDefault();
 
-        const res = await API.post("/medication", {id: null, name: ""})
-            console.log(res.data)
+        const res = await API.post("/medication")
+            console.log("Res data", res.data)
             props.addMedication(res.data.medication);
             setMedication(blankForm);
     }
@@ -27,6 +27,7 @@ export default function AddMedication(props) {
      <form onSubmit={handleSubmit}>
          <input type="text"
                 name="name"
+                id="nameInput"
                 placeholder="e.g. Amlodipine 10mg OD"
                 value={medication.name}
                 onChange={handleInput}
