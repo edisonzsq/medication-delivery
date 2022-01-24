@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import API from '../api/api';
+import SelectMedication from './SelectMedication';
 
 export default function AddMedication(props) {
     const blankForm = {
@@ -7,12 +8,6 @@ export default function AddMedication(props) {
         name: ''
     }
     const [medication, setMedication] = useState(blankForm);
-
-    const handleInput = event => {
-        const newMed = {...medication};
-        newMed.name = event.target.value;
-        console.log("newMed", newMed);
-    }
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -28,14 +23,8 @@ export default function AddMedication(props) {
 
     return (
      <form onSubmit={handleSubmit}>
-         <input type="text"
-                name="name"
-                id="nameInput"
-                placeholder="e.g. Amlodipine 10mg OD"
-                value={medication.name}
-                onChange={handleInput}
-                className="Input" />
-                <button className="Button">Order</button>
+        <SelectMedication handleInput={handleInput} />
+        <button className="Button">Order</button>
      </form>
     )
 }
