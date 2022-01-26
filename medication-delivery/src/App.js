@@ -7,9 +7,6 @@ import './App.css';
 
 function App() {
   const [medicationList, setmedicationList] = useState([])
-  const blankForm = [
-    {id: null, name: ''}
-  ]
 
   const addMedication = () => {
     API.get("/medication").then((res) => {
