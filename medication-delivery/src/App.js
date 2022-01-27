@@ -3,17 +3,23 @@ import AddMedication from './components/AddMedication';
 import MedicationList from './components/MedicationList';
 import logo from './logo.jpg';
 import API from './api/api';
+import {uniqueId} from 'lodash';
 import './App.css';
 
 function App() {
+  const blankForm = {
+    id: null, 
+    name: ''
+  }
   const [medicationList, setmedicationList] = useState([])
 
-  const addMedication = () => {
-    API.get("/medication").then((res) => {
-      console.log("Status", res.status);
-      console.log("Data", res.data)
-      setmedicationList([...medicationList, res.data])
-    })
+  const apiGetMed = async() => {
+    const {status, data} = API.get("/medication")
+      console.log("Status", status);
+      console.log("Data", data)
+      if (status === 200) {
+        setmedicationList(data)
+      }
   }
 
   return (
@@ -26,7 +32,7 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          <AddMedication addMedication={addMedication} />
+          <AddMedication apiGetMed={apiGetMed} />
       </div>
       <div className="List">
       <div>

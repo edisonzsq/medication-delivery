@@ -17,7 +17,6 @@ export default function AddMedication(props) {
     const handleSubmit = async(event) => {
         event.preventDefault();
 
-        props.addMedication(medication);
         setMedication(blankForm);
     }
 
