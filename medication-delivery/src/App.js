@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import AddMedication from './components/AddMedication';
+import SelectMedication from './components/SelectMedication';
 import MedicationList from './components/MedicationList';
 import logo from './logo.jpg';
 import API from './api/api';
@@ -32,7 +32,7 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          <AddMedication apiGetMed={apiGetMed} />
+          <SelectMedication apiGetMed={apiGetMed} />
       </div>
       <div className="List">
       <div>

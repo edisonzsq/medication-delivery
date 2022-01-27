@@ -1,21 +1,27 @@
-import API from '../api/api';
+import React, {useState} from 'react';
 
-export default function SelectMedication() {
-    const [select, setSelect] = useState([]);
+export default function AddMedication(props) {
+    const blankForm = {
+        id: null, 
+        name: ''
+    }
+    const [medication, setMedication] = useState(blankForm);
 
     const handleInput = event => {
-        API.get("/medication").then((res) => {
-            console.log("Status", res.status);
-            console.log("Data", res.data)
-            setSelect([...select, res.data])
+        const {name, value} = event.target;
+        const newMed = {...medication, [name]:value};
+        setMedication(newMed);
+        console.log("newMed", newMed);
+    }
 
-            const newMed = {...medication};
-            newMed.name = event.target.value;
-            console.log("newMed", newMed);
-        })
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+
+        setMedication(blankForm);
     }
 
     return (
+        <form onSubmit={handleSubmit}>
         <select name="name"
                 id="nameInput"
                 placeholder="e.g. Amlodipine 10mg OD"
@@ -59,5 +65,8 @@ export default function SelectMedication() {
                 {JSON.stringify(medication[8].name).slice(1, -1)}
             </option>
         </select>
+        <button className="Button">Order</button>
+        </form>
     )
 }
+// map

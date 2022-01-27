@@ -18,3 +18,4 @@ export default function MedicationList(props) {
         </div>
     )
 }
+//filter and map
