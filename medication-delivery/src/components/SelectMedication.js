@@ -10,13 +10,14 @@ export default function AddMedication(props) {
     const handleInput = event => {
         const {name, value} = event.target;
         const newMed = {...medication, [name]:value};
+        const id = medication.id + 1;
+        newMed.id = id
         setMedication(newMed);
         console.log("newMed", newMed);
     }
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-
         setMedication(blankForm);
     }
 
