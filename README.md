@@ -27,7 +27,7 @@ This is my individual project for the SkillsUnion/NTU Software Developer Immersi
 
 ## Illustrations
 
-![https://github.com/Sarah-Specialist/medication-delivery/blob/5588f524051e2a19174260e9d9f5326bf4a75b9e/medication-delivery/src/Untitled.jpg]()
+![](https://github.com/Sarah-Specialist/medication-delivery/blob/5588f524051e2a19174260e9d9f5326bf4a75b9e/medication-delivery/src/Untitled.jpg)
 
 ## Usage
 
