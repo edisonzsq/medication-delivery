@@ -1,4 +1,3 @@
-import {uniqueId} from 'lodash';
 import React, {useState} from 'react';
 import AddMedication from './components/AddMedication';
 import MedicationList from './components/MedicationList';

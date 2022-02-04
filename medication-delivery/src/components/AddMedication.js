@@ -17,7 +17,16 @@ export default function AddMedication(props) {
     const handleSubmit = async(event) => {
         event.preventDefault();
 
+        props.addMedication(medication);
         setMedication(blankForm);
+        console.log("Input:", medication.name);
+        console.log("Input2:", {medication});
+
+        //console.log(res.data);
+        //console.log(response);
+        //const matched = response.find(({name}) => name === "Atenolol 50mg OD");
+        //console.log(matched);
+        
     }
 
     return (
