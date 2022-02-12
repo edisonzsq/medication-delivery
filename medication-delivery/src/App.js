@@ -1,28 +1,30 @@
-import React, {useState} from 'react';
-import AddMedication from './components/AddMedication';
-import MedicationList from './components/MedicationList';
+import React, {useEffect, useState} from 'react';
+import GetMedication from './components/GetMedication';
+import OrderedMed from './components/OrderedMed';
 import logo from './logo.jpg';
 import API from './api/api';
-import {v4 as uuid} from 'uuid';
 import './App.css';
 
 function App() {
   const [medicationList, setmedicationList] = useState([])
 
-  const addMedication = () => {
-    API.get("/medication").then((res) => {
-      console.log("Status", res.status);
-      console.log("Data", res.data)
-      res.data.id = uuid();
-      setmedicationList([...medicationList, res.data])
-      console.log("Order Id:", res.data.id);
-      const response = res.data;
-      console.log(response);
-
-      //const matched = response.find(({name}) => name === "Atenolol 50mg OD");
-      //console.log(matched);
-    })
+  const getMedication = async () => {
+    const {status, data} = await API.get("/medication");
+      console.log("Status", status);
+      console.log("Data", data)
+      if (status === 200) {
+        setmedicationList([...medicationList, data])
+      }
   }
+
+  useEffect(() => {
+    getMedication();
+  }, []);
+
+  const orderedMed = () => {
+    
+  }
+  
 
   return (
     <div className="App">
@@ -34,13 +36,13 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          <AddMedication addMedication={addMedication} />
+          <GetMedication getMedication={getMedication} />
       </div>
       <div className="List">
       <div>
         <h2>Order List</h2>
         <ul>
-          <MedicationList medicationList={medicationList} />
+          <OrderedMed orderedMed={orderedMed} />
         </ul>
       </div>
       </div>     

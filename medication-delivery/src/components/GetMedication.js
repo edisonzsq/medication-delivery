@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function AddMedication(props) {
+export default function GetMedication(props) {
     const blankForm = {
         id: null, 
         name: ''
@@ -17,16 +17,10 @@ export default function AddMedication(props) {
     const handleSubmit = async(event) => {
         event.preventDefault();
 
-        props.addMedication(medication);
+        props.getMedication(medication);
         setMedication(blankForm);
         console.log("Input:", medication.name);
         console.log("Input2:", {medication});
-
-        //console.log(res.data);
-        //console.log(response);
-        //const matched = response.find(({name}) => name === "Atenolol 50mg OD");
-        //console.log(matched);
-        
     }
 
     return (

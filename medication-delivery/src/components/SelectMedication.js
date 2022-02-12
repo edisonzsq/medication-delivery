@@ -70,4 +70,4 @@ export default function AddMedication(props) {
         </form>
     )
 }
-// map
+// <SelectMedication id={element.id} data={element}/>;
