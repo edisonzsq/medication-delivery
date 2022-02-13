@@ -13,7 +13,7 @@ function App() {
       console.log("Status", status);
       console.log("Data", data)
       if (status === 200) {
-        setmedicationList([...medicationList, data])
+        setmedicationList(data)
       }
   }
 
@@ -21,10 +21,27 @@ function App() {
     getMedication();
   }, []);
 
-  const orderedMed = () => {
-    
+  //default state to pass item to orderlist
+  const blankForm = {
+    name: '',
+    quantity: 0
   }
-  
+
+  const [addMed, setAddMed] = useState(blankForm)
+
+  useEffect(() => {
+    console.log("addMed is", addMed);
+  }, [addMed]);
+
+  // state to print to select med
+  const [selectMed, setSelectMed] = useState([]);
+
+  //function to pass med to order list
+  function OrderedMed(newMed) {
+    const orderList = {...newMed};
+    setSelectMed(orderList);
+    OrderedMed(orderList, selectMed, setSelectMed);
+  }
 
   return (
     <div className="App">
@@ -42,7 +59,7 @@ function App() {
       <div>
         <h2>Order List</h2>
         <ul>
-          <OrderedMed orderedMed={orderedMed} />
+          <OrderedMed orderedMed={orderedMed} selectMed={selectMed} setSelectMed={setSelectMed} />
         </ul>
       </div>
       </div>     
