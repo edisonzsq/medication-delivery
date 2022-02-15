@@ -1,4 +1,4 @@
-export default function Quantity() {
+export default function Quantity(props) {
     return (
         <>
             <input type="number" value={medCount}></input>

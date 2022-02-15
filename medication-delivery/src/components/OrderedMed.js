@@ -4,9 +4,9 @@ import {v4 as uuid} from 'uuid';
 export default function OrderedMed(props) { 
     return(
         <div>
-        <span><SelectMedication /></span>
-        <span><Quantity /></span>
-        <span><Status /></span>
+            <span><SelectMedication /></span>
+            <span><Quantity /></span>
+            <span><Status /></span>
         </div>
     )
 }

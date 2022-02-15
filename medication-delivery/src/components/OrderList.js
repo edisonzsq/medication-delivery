@@ -9,7 +9,7 @@ export default function OrderList(props) {
             .map((element)=>{
                 return (
                     <li key={uuid()}>
-                        <span>{JSON.stringify({element}).slice(1, -1)}</span>
+                        <span>{JSON.stringify({element})}</span>
                     </li>
                 )
             })}

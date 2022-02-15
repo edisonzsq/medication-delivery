@@ -2,26 +2,23 @@ import React, {useState} from 'react';
 import Quantity from './Quantity';
 
 export default function SelectMedication(props) {
-    const [medication, setMedication] = useState(blankForm);
+    const [medicationList, setmedicationList] = useState([])
 
-    const handleInput = event => {
-        const {name, value} = event.target;
-        const newMed = {...medication, [name]:value};
-        setMedication(newMed);
-        console.log("newMed", newMed);
+    const handleClick = async () => {
+        const {status, data} = await API.get("/medication");
+        console.log("Status", status);
+        console.log("Data", data)
+        if (status === 200) {
+            setmedicationList(data)
+        }
     }
 
-    const handleSubmit = async(event) => {
-        event.preventDefault();
-        //setMedication(blankForm);
+    useEffect(() => {
+        getMedication();
+    }, []);
 
-        const medDetails = {
-            name: props.data.name,
-            quantity: medCount,
-            duration: duration
-        }
-
-        props.OrderedMed(medDetails);
+    const handleSubmit = async () => {
+        
     }
 
     return (
@@ -30,7 +27,7 @@ export default function SelectMedication(props) {
                 id="nameInput"
                 placeholder="e.g. Amlodipine 10mg OD"
                 value={medication.name}
-                onClick={handleInput}
+                onClick={handleClick}
                 className="Input">
             <option value="option1" 
                     key={medication.id}>
