@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Quantity from './Quantity';
 
-export default function AddMedication(props) {
+export default function SelectMedication(props) {
     const [medication, setMedication] = useState(blankForm);
 
     const handleInput = event => {
