@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Quantity from './Quantity';
 
 export default function AddMedication(props) {
     const [medication, setMedication] = useState(blankForm);
@@ -12,7 +13,15 @@ export default function AddMedication(props) {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        setMedication(blankForm);
+        //setMedication(blankForm);
+
+        const medDetails = {
+            name: props.data.name,
+            quantity: medCount,
+            duration: duration
+        }
+
+        props.OrderedMed(medDetails);
     }
 
     return (
@@ -60,7 +69,7 @@ export default function AddMedication(props) {
                 {props.data.name}
             </option>
         </select>
-        <input type="number" value={medCount}></input>
+        <Quantity />
         <button className="Button">Order</button>
         </form>
     )
