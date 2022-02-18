@@ -1,9 +1,9 @@
-//import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Quantity from './Quantity';
-//import API from '../api/api';
+import API from '../api/api';
 
 export default function SelectMedication(props) {
-    /*
+    
     const [medicationList, setmedicationList] = useState([])
 
     const handleClick = async () => {
@@ -18,16 +18,16 @@ export default function SelectMedication(props) {
     useEffect(() => {
         handleClick();
     }, []);
-*/
+
     return (
         <form>
         <select name="name"
                 id="nameInput"
-                placeholder="e.g. Amlodipine 10mg OD"
-                //value={props.medication.name}
-                //onClick={handleClick}
+                defaultValue={'default'}
+                value={props.medication}
+                onClick={handleClick}
                 className="Input">
-            <option value="" selected="selected" hidden="hidden">Choose medication</option>
+            <option value="default" hidden="hidden">Choose medication</option>
             <option value="option1">
                 Option 1
             </option>

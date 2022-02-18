@@ -25,6 +25,7 @@ function App() {
       <div>
         <h2>Order List</h2>
         <table>
+        <tbody>
           <tr>
             <th>Medication</th>
             <th>Quantity</th>
@@ -35,6 +36,7 @@ function App() {
             <td>Quantity</td>
             <td>Status</td>
           </tr>
+        </tbody>
         </table>
       </div>
       </div>     
