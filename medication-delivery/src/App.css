@@ -36,12 +36,13 @@ h1 {
 }
 
 .Input {
-  margin: 0 20px;
-  padding: 10px;
+  margin-right: 20px;
+  padding: 5px;
   width: 200px;
 }
 
 .Button {
+  margin-left: 20px;
   padding: 5px 10px;
   border: solid 1px grey;
   background-color: aquamarine;

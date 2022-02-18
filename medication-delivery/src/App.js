@@ -19,7 +19,7 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          SelectMedication
+          <SelectMedication />
       </div>
       <div className="List">
       <div>
