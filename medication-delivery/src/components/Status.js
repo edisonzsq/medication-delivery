@@ -1,3 +1,4 @@
+/*
 export default function Status(props) {
     
     setTimeout(()=> {
@@ -12,3 +13,4 @@ export default function Status(props) {
 
     )
 }
+*/

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import GetMedication from './components/GetMedication';
-import OrderedMed from './components/OrderedMed';
+import SelectMedication from './components/SelectMedication';
+//import OrderedMed from './components/OrderedMed';
+//import Quantity from './components/Quantity';
+//import Status from './components/Status';
 import logo from './logo.jpg';
-import API from './api/api';
 import './App.css';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          <SelectMedication />
+          SelectMedication
       </div>
       <div className="List">
       <div>
@@ -30,9 +31,9 @@ function App() {
             <th>Status</th>
           </tr>
           <tr>
-            <td><OrderedMed /></td>
-            <td><Quantity /></td>
-            <td><Status /></td>
+            <td>OrderedMed</td>
+            <td>Quantity</td>
+            <td>Status</td>
           </tr>
         </table>
       </div>

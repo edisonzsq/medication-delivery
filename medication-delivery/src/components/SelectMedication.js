@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Quantity from './Quantity';
+import API from '../api/api';
 
 export default function SelectMedication(props) {
     const [medicationList, setmedicationList] = useState([])
@@ -14,7 +15,7 @@ export default function SelectMedication(props) {
     }
 
     useEffect(() => {
-        getMedication();
+        handleClick();
     }, []);
 
     const handleSubmit = async () => {
@@ -26,43 +27,43 @@ export default function SelectMedication(props) {
         <select name="name"
                 id="nameInput"
                 placeholder="e.g. Amlodipine 10mg OD"
-                value={medication.name}
+                value={props.medication.name}
                 onClick={handleClick}
                 className="Input">
             <option value="option1" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option2" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option3" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option4" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option5" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option6" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option7" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option8" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
             <option value="option9" 
-                    key={medication.id}>
+                    key={props.medication.id}>
                 {props.data.name}
             </option>
         </select>
