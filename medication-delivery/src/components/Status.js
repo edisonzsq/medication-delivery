@@ -1,16 +1,14 @@
-/*
-export default function Status(props) {
-    
-    setTimeout(()=> {
-        return <tr>Processing...</tr>
-    }, 3000)
+import { useState, useEffect } from "react"
 
-    setTimeout(() => {
-        return <tr>Your order is on the way!</tr>
-    }, 5000)
+export default function Status() {
+    const [status, setStatus] = useState("Processing...");
 
-    return (
+    useEffect(() => {
+        setTimeout(()=> {
+            setStatus("On the way...");
+        }, 3000);
+        return () => clearTimeout();
+    }, []);
 
-    )
+    return <span>{status}</span>
 }
-*/

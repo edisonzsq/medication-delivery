@@ -2,12 +2,27 @@ import React, {useEffect, useState} from 'react';
 import SelectMedication from './components/SelectMedication';
 //import OrderedMed from './components/OrderedMed';
 //import Quantity from './components/Quantity';
-//import Status from './components/Status';
+import Status from './components/Status';
 import logo from './logo.jpg';
+import API from './api/api';
 import './App.css';
 
 function App() {
 
+  const [medicationList, setmedicationList] = useState([]);
+
+    const getMedication = async () => {
+        const {status, data} = await API.get("/medication");
+        console.log("Status", status);
+        console.log("Data", data)
+        if (status === 200) {
+            setmedicationList(data)
+        }
+    }
+
+    useEffect(() => {
+      getMedication();
+    }, []);
 
   return (
     <div className="App">
@@ -19,7 +34,7 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          <SelectMedication />
+          <SelectMedication data={medicationList} />
       </div>
       <div className="List">
       <div>
@@ -34,7 +49,7 @@ function App() {
           <tr>
             <td>OrderedMed</td>
             <td>Quantity</td>
-            <td>Status</td>
+            <td><Status /></td>
           </tr>
         </tbody>
         </table>
