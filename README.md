@@ -40,4 +40,4 @@ Moving forward, I will add a requirement for the user to perform user authentica
 
 ## Authors and acknowledgement
 
-* SkillsUnion
+* Edison from SkillsUnion
