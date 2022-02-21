@@ -4,6 +4,7 @@ import Quantity from './Quantity';
 import Status from './Status';
 
 export default function OrderedMed(props) { 
+    const {addItem} = props;
     return(
         <>
             <td>OrderList</td>
@@ -12,3 +13,8 @@ export default function OrderedMed(props) {
         </>
     )
 }
+/*
+{props.medQuantity.map(quantity => {
+     return <td>{quantity.number} {quantity.duration}</td>
+})}
+*/

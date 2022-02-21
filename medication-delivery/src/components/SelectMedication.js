@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Quantity from './Quantity';
-import { v4 as uuid } from 'uuid';
 
 export default function SelectMedication(props) {
     let orderedMed = {
@@ -8,6 +7,8 @@ export default function SelectMedication(props) {
         quantity: ""
     };
     const [med, setMed] = useState(orderedMed);
+    const [number, setNumber] = useState("");
+    const [duration, setDuration] = useState("");
 
     const handleInput = event => {
         const {name, value} = event.target
