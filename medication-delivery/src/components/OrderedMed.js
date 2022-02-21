@@ -1,14 +1,14 @@
-/*
 import React from 'react';
-import {v4 as uuid} from 'uuid';
+import OrderList from './OrderList';
+import Quantity from './Quantity';
+import Status from './Status';
 
 export default function OrderedMed(props) { 
     return(
-        <div>
-            <span><SelectMedication /></span>
-            <span><Quantity /></span>
-            <span><Status /></span>
-        </div>
+        <>
+            <td>OrderList</td>
+            <td>Quantity</td>
+            <td><Status /></td>
+        </>
     )
 }
-*/

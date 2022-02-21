@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import SelectMedication from './components/SelectMedication';
-//import OrderedMed from './components/OrderedMed';
-//import Quantity from './components/Quantity';
-import Status from './components/Status';
+import OrderedMed from './components/OrderedMed';
 import logo from './logo.jpg';
 import API from './api/api';
 import './App.css';
@@ -23,6 +21,11 @@ function App() {
     useEffect(() => {
       getMedication();
     }, []);
+
+    const [med, setMed] = useState("")
+    function addMed(med) {
+      setMed([...medicationList, med])
+    }
 
   return (
     <div className="App">
@@ -47,9 +50,7 @@ function App() {
             <th>Status</th>
           </tr>
           <tr>
-            <td>OrderedMed</td>
-            <td>Quantity</td>
-            <td><Status /></td>
+            <OrderedMed addMed={addMed} />
           </tr>
         </tbody>
         </table>

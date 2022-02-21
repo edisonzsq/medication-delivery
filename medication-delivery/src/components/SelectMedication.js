@@ -5,17 +5,26 @@ import { v4 as uuid } from 'uuid';
 export default function SelectMedication(props) {
     let orderedMed = {
         name: "",
-        quantity: 0
+        quantity: ""
     };
+    const [med, setMed] = useState(orderedMed);
 
-    const handleSubmit = () => {
+    const handleInput = event => {
+        const {name, value} = event.target
+        setMed({...med, [name]: value})
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
         const orderDetails = {
             name: props.data.name,
             quantity: props.medCount
         }
 
         orderedMed = orderDetails;
-        props.addToList(orderedMed);
+        props.addMed(med);
+        setMed(orderedMed);
     }
 
     return (
@@ -23,12 +32,14 @@ export default function SelectMedication(props) {
         <select name="name"
                 id="nameInput"
                 defaultValue={'default'}
-                className="Input">
+                value={props.data.name}
+                className="Input"
+                onChange={handleInput}>
             {props.data.map((element) => {
                 return (
                     <>
                     <option value="default" hidden="hidden">Choose medication</option>
-                    <option key={uuid}>
+                    <option key={element.id}>
                         {element.name}
                     </option>
                     </>
