@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This is my individual project for the SkillsUnion/NTU Software Developer Immersive course. I created a medication delivery order system. I created my own db.json file and API data using jsonplaceholder.typicode.com.
+This is an individual project that I completed during my free time. I created a medication delivery order system. I created my own db.json file and API data using jsonplaceholder.typicode.com.
 
 ## Built with
 
@@ -31,11 +31,12 @@ This is my individual project for the SkillsUnion/NTU Software Developer Immersi
 
 ## Usage
 
-Type the name, dosage and frequency of your medication in the input box.
+Choose the medication from your prescription list.
+Choose the number of weeks/months of the medication you wish to order.
 
 ## Improvement
 
-Moving forward, I will convert the input box to a drop-down list that fetches data from an API. I will also require the user to perform user authentication prior to accessing his/her prescription.
+Moving forward, I will add a requirement for the user to perform user authentication prior to accessing his/her prescription.
 
 ## Authors and acknowledgement
 
