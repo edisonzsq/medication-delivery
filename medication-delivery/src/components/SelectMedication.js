@@ -35,16 +35,16 @@ export default function SelectMedication(props) {
                 value={props.data.name}
                 className="Input"
                 onChange={handleInput}>
-            {props.data.map((element) => {
-                return (
-                    <>
-                    <option value="default" hidden="hidden">Choose medication</option>
-                    <option key={element.id}>
-                        {element.name}
-                    </option>
-                    </>
-                        )
-                    })}
+                    <option key={"default"} value="default" hidden="hidden">Choose medication</option>
+                    {
+                        props.data.map((element) => {                
+                            return (                       
+                                <option key={element.id}>
+                                    {element.name}
+                                </option>
+                            )
+                        })
+                    }
         </select>
         <button className="Button">Order</button>
         <div style={{padding: 15}}>
