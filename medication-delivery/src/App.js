@@ -22,9 +22,9 @@ function App() {
       getMedication();
     }, []);
 
-    const [med, setMed] = useState("")
+    const [med, setMed] = useState([]); // Based on setMed([...med, order]); you are using array. So initialize it with an empty array.
     function addMed(order) {
-      setMed([...med, order])
+      setMed(()=>([...med, ...[order]]))
     }
 
   return (
@@ -41,19 +41,7 @@ function App() {
       </div>
       <div className="List">
       <div>
-        <h2>Order List</h2>
-        <table>
-        <tbody>
-          <tr>
-            <th>Medication</th>
-            <th>Quantity</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <OrderedMed med={med} />
-          </tr>
-        </tbody>
-        </table>
+        <OrderedMed med={med}></OrderedMed>
       </div>
       </div>     
     </div>
