@@ -49,7 +49,6 @@ export default function SelectMedication(props) {
                 <option value="default" hidden="hidden">Duration</option>
                 <option>weeks</option>
                 <option>months</option>
-                <option>years</option>
             </select>
         </div>
         <button className="Button" style={{position:"relative", left:140, bottom:87}}>Order</button>
