@@ -1,4 +1,4 @@
-# medication-delivery
+# Medication Delivery Order System
 
 
 ## Table of contents
@@ -20,6 +20,8 @@ This is an individual project that I completed during my free time. I created a 
 * CSS
 * JavaScript
 * React
+* React Hooks
+* React Functional Components
 * Axios
 * API
 * Visual Studios Code
