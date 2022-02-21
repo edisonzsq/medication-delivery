@@ -1,19 +1,21 @@
 import React from 'react';
-import OrderList from './OrderList';
 import Status from './Status';
 
 export default function OrderedMed(props) { 
-    const {addItem} = props;
+    const {addMed} = props;
     return(
         <>
-            <td>OrderList</td>
-            <td>Quantity</td>
+        {
+            props.med.map(order => {
+                return(
+                    <>
+                    <td>{order.med}</td>
+                    <td>{order.number} {order.duration}</td>
+                    </>
+                )
+            })
+        }
             <td><Status /></td>
         </>
     )
 }
-/*
-{props.medQuantity.map(quantity => {
-     return <td>{quantity.number} {quantity.duration}</td>
-})}
-*/

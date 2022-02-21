@@ -23,8 +23,8 @@ function App() {
     }, []);
 
     const [med, setMed] = useState("")
-    function addMed(med) {
-      setMed([...medicationList, med])
+    function addMed(order) {
+      setMed([...med, order])
     }
 
   return (
@@ -37,7 +37,7 @@ function App() {
       </div>
       <h1>Medication Delivery App</h1>
       <div className="Form">
-          <SelectMedication data={medicationList} />
+          <SelectMedication data={medicationList} addMed={addMed} />
       </div>
       <div className="List">
       <div>
@@ -50,7 +50,7 @@ function App() {
             <th>Status</th>
           </tr>
           <tr>
-            <OrderedMed addMed={addMed} />
+            <OrderedMed med={med} />
           </tr>
         </tbody>
         </table>
